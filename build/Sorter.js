@@ -9,11 +9,8 @@ var Sorter = /** @class */ (function () {
         var length = this.collection.length;
         for (var i = 0; i < length; i += 1) {
             for (var j = 0; j < length - i - 1; j += 1) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    var rightHand = this.collection[j + 1];
-                    this.collection[j + 1] = this.collection[j];
-                    this.collection[j] = rightHand;
-                }
+                if (this.collection.compare(j, j + 1))
+                    this.collection.swap(j, j + 1);
             }
         }
     };
