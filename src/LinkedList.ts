@@ -1,9 +1,11 @@
+import { Sorter } from './Sorter';
+
 class Node {
   next: Node|null = null;
   constructor(public data: number) {}
 }
 
-export class LinkedList {
+export class LinkedList extends Sorter {
   head: Node|null = null;
 
   add(data: number): void {
@@ -83,9 +85,9 @@ export class LinkedList {
     throw new Error('Index out of bounds');
   }
   
-  print(): void {
+  log(): string {
     if (!this.head) {
-      return;
+      return '';
     }
     let node: Node|null = this.head;
     let printStatement = '';
@@ -93,6 +95,6 @@ export class LinkedList {
       printStatement += `${node.data} => `;
       node = node.next;
     }
-    console.log(printStatement);
+    return `${printStatement}null`;
   }
 }
